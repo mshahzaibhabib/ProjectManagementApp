@@ -1,0 +1,70 @@
+extends base
+block content
+    main.main
+        .login-form
+            h1 Add New Project
+            form.form.add_new
+                .form_group
+                    label.form_label Project Name
+                    input#projectName(type='text',name="projectName", placeholder='', autofocus= true, required)
+                .form_group
+                    label.form_label Project Source
+                    select#projectSource(name="projectSource", required)
+                        option(value="Fiverr") Fiverr
+                        option(value="Upwork") Upwork
+                        option(value="Pinease") Pinease
+                        option(value="Sitex") Sitex
+                        option(value="Personal") Personal
+                .form_group
+                    label.form_label Client Name
+                    input#clientName(type='text',name="clientName", placeholder='', required)
+                .form_group
+                    label.form_label Developer(s)
+                    div
+                        input#developers(type="checkbox", name="developers", value="Uzair Haider")
+                        label(for="Uzair Haider") Uzair Haider
+                    div
+                        input(type="checkbox", name="developers", value="Hasnain Raza")
+                        label(for="Hasnain Raza") Hasnain Raza
+                    div
+                        input(type="checkbox", name="developers", value="Muhammad Karrar")
+                        label(for="Muhammad Karrar") Muhammad Karrar
+                    div
+                        input(type="checkbox", name="developers", value="Ali Hadi")
+                        label(for="Ali Hadi") Ali Hadi
+                    div                            
+                        input(type="checkbox", name="developers", value="Majid Ali")
+                        label(for="Majid Ali") Majid Ali
+                    div
+                        input(type="checkbox", name="developers", value="Shahzaib Habib Ansari")
+                        label(for="Shahzaib Habib Ansari") Shahzaib Habib Ansari
+                .form_group
+                    label.form_label Project Manager
+                    select#projectManager(name="projectManager", required)
+                        option(value="Faheem Abbas") Faheem Abbas
+                        option(value="Kazim Raza") Kazim Raza
+                .form_group
+                    label.form_label Start Date
+                    input#startDate(type='datetime-local', name="startDate" , required)
+                .form_group
+                    label.form_label Due Date
+                    input#dueDate(type='datetime-local', name="dueDate" , required)
+                .form_group
+                    label.form_label Platform
+                    select#platform(name="platform", required)
+                        option(value="Wordpress") Wordpress
+                        option(value="Shopify") Shopify
+                        option(value="Zendesk") Zendesk
+                .form_group
+                    label.form_label Theme
+                    input#theme(type='text', name="theme", placeholder='', required)
+                .form_group
+                    label.form_label Plugin(s)
+                    input#plugins(type='text', name="plugins", placeholder='', required)
+                .form_group
+                    label.form_label Status
+                    select#status(name="status", required)
+                        option(value="Started") Started
+                        option(value="Completed") Completed
+                .form_group
+                    input#submit-btn(type="submit", value="Add Project")
