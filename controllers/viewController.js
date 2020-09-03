@@ -4,19 +4,37 @@ const catchAsync = require('./../utils/catchAsync');
 
 
 
+// exports.getProjects = catchAsync(async (req, res, next) => {
+//     const projects = await Project.find();
+
+//     res.status(200).render('projects', {
+//         title: 'All Projects',
+//         projects
+//     });
+// });
+
 exports.getProjects = catchAsync(async (req, res, next) => {
     const projects = await Project.find();
 
-    res.status(200).render('projects', {
+    res.status(200).render('new-projects', {
         title: 'All Projects',
         projects
     });
 });
 
+// exports.getProject = catchAsync(async (req, res, next) => {
+//     const project = await Project.findById(req.params.id);
+
+//     res.status(200).render('project', {
+//         title: project.projectName,
+//         project
+//     });
+// });
+
 exports.getProject = catchAsync(async (req, res, next) => {
     const project = await Project.findById(req.params.id);
 
-    res.status(200).render('project', {
+    res.status(200).render('new-project', {
         title: project.projectName,
         project
     });

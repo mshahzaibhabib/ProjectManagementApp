@@ -1,0 +1,122 @@
+@import "./../../node_modules/bootswatch/dist/lumen/variables";
+@import "./../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./../../node_modules/bootswatch/dist/lumen/bootswatch";
+
+body {
+    // background-color: #f8f8f8;
+}
+
+nav.navbar.navbar-expand-lg {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+ul.navbar-nav.mr-auto {
+    // margin-right: 0px !important;
+    margin-right: 6% !important;
+    margin-left: auto;
+}
+
+a.nav-link {
+    color: #2379be !important;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+a.nav-link:hover {
+    color: #0a4b80 !important;
+}
+
+main.main {
+    width: 90%;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin: 40px auto;
+}
+
+/*********************************************************************************************
+*********************************************************************************************/
+
+.projects-accordion {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.card-header {
+    // background-color: #0a4b80;
+    // background: linear-gradient(135deg, rgba(10,75,128,1) 30%, rgba(35,121,190,1) 100%);
+    // color: #f8f8f8;
+}
+
+// .card-header .header-text {
+//     width: 50%;
+//     float: left;
+// }
+
+.card-header .header-column {
+    width: 50%;
+    float: left;
+}
+
+.header-column.details-side {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-text i {
+    margin-right: 10px;
+}
+
+.card-header .source-logo-svg {
+    height: 40px;
+    width: 50px;
+}
+
+.header-item.badge {
+    height: fit-content;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+.card-body-wrapper {
+    display: flex;
+    background: linear-gradient(135deg, #f8f8f8 80%, #ffffff 100%);
+}
+
+.card-body {
+    // background: linear-gradient(135deg, rgba(10,75,128,1) 30%, rgba(35,121,190,1) 100%);
+    // color: #f8f8f8;
+    background: linear-gradient(90deg, #f8f8f8, #ffffff);
+    max-width: 50%;
+}
+
+.card p.card-text {
+    margin: 0px;
+}
+
+.card-body .card-text span.label {
+    font-weight: 600;
+}
+
+a.card-link {
+    // display: inline-block;
+    // text-decoration: none;
+    // font-size: 0.9rem;
+    // color: #f8f8f8;
+    // background-color: #0a4b80;
+    // padding: 5px 15px;
+    // border-radius: 2px;
+    color: #2379be;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+a.card-link:hover {
+    color: #0a4b80;
+}
+
+a.card-link i {
+    margin-left: 10px;
+}

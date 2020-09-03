@@ -16,7 +16,8 @@
             "Classic Editor",
             "Woocommerce"
         ],
-        "status": "Completed"
+        "status": "Completed",
+        "workProgress": "On Track"
     },
     {
         "projectName": "RBLUXCars Ltd.",
@@ -33,7 +34,27 @@
         "plugins": [
             "Classic Editor"
         ],
-        "status": "Completed"
+        "status": "Completed",
+        "workProgress": "Finished"
+    },
+    {
+        "projectName": "Manchester United",
+        "projectSource": "Sitex",
+        "clientName": "John Smith",
+        "developers": [
+            "Ali Hadi",
+            "Hasnain Raza"
+        ],
+        "projectManager": "Faheem Abbas",
+        "startDate": "2020-03-19T09:00:00.000Z",
+        "dueDate": "2020-03-25T09:00:00.000Z",
+        "platform": "Wordpress",
+        "theme": "Divi Theme",
+        "plugins": [
+            "Classic Editor"
+        ],
+        "status": "Started",
+        "workProgress": "On Track"
     },
     {
         "projectName": "Fastrefill4you",
@@ -54,7 +75,27 @@
             "Woocommerce",
             "Mail Chimp"
         ],
-        "status": "Completed"
+        "status": "Completed",
+        "workProgress": "Paused"
+    },
+    {
+        "projectName": "Visio",
+        "projectSource": "Personal",
+        "clientName": "John Smith",
+        "developers": [
+            "Majid Ali",
+            "Muhammad karrar"
+        ],
+        "projectManager": "Kazim Raza",
+        "startDate": "2020-03-19T09:00:00.000Z",
+        "dueDate": "2020-03-25T09:00:00.000Z",
+        "platform": "Wordpress",
+        "theme": "Be Theme",
+        "plugins": [
+            "Classic Editor"
+        ],
+        "status": "Completed",
+        "workProgress": "Finished"
     },
     {
         "projectName": "Commercial Cleaning Business Box",
@@ -71,7 +112,8 @@
         "plugins": [
             "Classic Editor"
         ],
-        "status": "Completed"
+        "status": "Completed",
+        "workProgress": "On Track"
     },
     {
         "projectName": "Abbas Automation",
@@ -91,7 +133,8 @@
             "Classic Editor",
             "Woocommerce"
         ],
-        "status": "Completed"
+        "status": "Completed",
+        "workProgress": "Delayed"
     },
     {
         "projectName": "Zookdisk",
@@ -112,6 +155,7 @@
             "Woocommerce",
             "Paypal"
         ],
-        "status": "Completed"
+        "status": "Completed",
+        "workProgress": "Paused"
     }
 ]

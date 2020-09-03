@@ -1,0 +1,45 @@
+extends base
+block content
+    main.main
+        .cards_container
+            .card.bg-light.border-light.mb-3
+                    h2.card-header= project.projectName
+                    .card-body-wrapper
+                        .card-body
+                            //- h4.card-title= project.projectName
+                            h5.card-text
+                                span.label= 'Project Source: '
+                                span= project.projectSource
+                            h5.card-text
+                                span.label= 'Client Name: '
+                                span= project.clientName
+                            - const startDate = project.startDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                            h5.card-text
+                                span.label= 'Start Date: '
+                                span= startDate
+                            - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                            h5.card-text
+                                span.label= 'Due Date: '
+                                span= dueDate
+                            h5.card-text
+                                span.label= 'Project Manager: '
+                                span.data= project.projectManager
+                        
+                        .card-body
+                            h5.card-text
+                                span.label= 'Developers: '
+                                span.data= project.developers
+                            h5.card-text
+                                span.label= 'Platform: '
+                                span.data= project.platform
+                            h5.card-text
+                                span.label= 'Theme: '
+                                span.data= project.theme
+                            h5.card-text
+                                span.label= 'Plugin: '
+                                span.data= project.plugins
+                            h5.card-text
+                                span.label= 'Project Status: '
+                                span.data= project.status                       
+                            a.card-link(href=`/update-project/${project._id}`) EDIT
+                            a.card-link(href="/projects") DELETE

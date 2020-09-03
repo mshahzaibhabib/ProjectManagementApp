@@ -1,0 +1,117 @@
+extends base
+block content
+    main.main
+        .cards_container
+            .accordion.projects-accordion#accordionExample
+                each project in projects
+                    .card.bg-light.border-light.mb-3
+                        .card-header.headingOne.btn.btn-link.btn-block.text-left(type="button" data-toggle="collapse" data-target=`#id${project._id}` aria-expanded="true" aria-controls=`id${project._id}`) 
+                            .header-column
+                                h2.header-item.header-text= project.projectName
+                                //- h5.header-item.header-text= project.projectSource
+                            .header-column.details-side
+                                img.header-item.source-logo-svg(src=`/img/svg/${project.projectSource.toLowerCase()}.svg`, alt="Project Source Logo")
+                                - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium'})
+                                h5.header-item.header-text
+                                    i(class="far fa-calendar-check")
+                                    span= dueDate
+                                span.header-item.header-text.badge.badge-primary= project.workProgress
+                        .collapse(id= `id${project._id}` aria-labelledby="headingOne" data-parent="#accordionExample")
+                            .card-body-wrapper
+                                .card-body
+                                    //- h5.card-text
+                                    //-     span.label= 'Project Source: '
+                                    //-     span= project.projectSource 
+                                    h5.card-text
+                                        span.label= 'Client Name: '
+                                        span= project.clientName
+                                    - const startDate = project.startDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                                    h5.card-text
+                                        span.label= 'Start Date: '
+                                        span= startDate
+                                    //- - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                                    //- h5.card-text
+                                    //-     span.label= 'Due Date: '
+                                    //-     span= dueDate
+                                    h5.card-text
+                                        span.label= 'Project Manager: '
+                                        span.data= project.projectManager
+                                    //- h5.card-text
+                                    //-     span.label= 'Working Progress: '
+                                    //-     span.data= project.workProgress
+                                    a.card-link(href=`/projects/${project._id}`, target="_blank") View Project
+                                        i(class="fas fa-arrow-right")
+                                .card-body
+                                    h5.card-text
+                                        span.label= 'Developers: '
+                                        span.data.developers= project.developers
+                                    h5.card-text
+                                        span.label= 'Platform: '
+                                        span.data= project.platform
+                                    h5.card-text
+                                        span.label= 'Theme: '
+                                        span.data= project.theme
+                                    h5.card-text
+                                        span.label= 'Plugin: '
+                                        span.data= project.plugins
+                //- .card.bg-light.border-light.mb-3
+                //-     h2.card-header= project.projectName
+                //-     .card-body-wrapper
+                //-         .card-body
+                //-             //- h4.card-title= project.projectName
+                //-             p.card-text= project.projectSource
+                //-             //- i(class="fas fa-user-tie")
+                //-             p.card-text= project.clientName
+                //-             - const startDate = project.startDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                //-             p.card-text= startDate
+                //-             - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                //-             p.card-text= dueDate
+                //-             p.card-text= project.projectManager
+                        
+                //-         .card-body
+                //-             p.card-text= project.developers
+                //-             p.card-text= project.platform
+                //-             p.card-text= project.theme
+                //-             p.card-text= project.plugins
+                //-             p.card-text= project.status                        
+                //-             a.card-link(href=`/projects/${project._id}`, target="_blank") View Project
+                            //- button.btn.btn-secondary(type="button") View Project
+                    //- .details
+                    //-     h1= project.projectName
+                    //-     h4
+                    //-         span.label= 'Project Source: '
+                    //-         span= project.projectSource
+                    //-     h4
+                    //-         span.label= 'Client Name: '
+                    //-         span= project.clientName
+                    //-     - const startDate = project.startDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                    //-     h4
+                    //-         span.label= 'Start Date: '
+                    //-         span= startDate
+                    //-     - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                    //-     h4
+                    //-         span.label= 'Due Date: '
+                    //-         span= dueDate
+
+                    //- .technical_details
+                    //-     p
+                    //-         span.label= 'Developers: '
+                    //-         span.data= project.developers
+                    //-     p
+                    //-         span.label= 'Project Manager: '
+                    //-         span.data= project.projectManager
+                    //-     p
+                    //-         span.label= 'Platform: '
+                    //-         span.data= project.platform
+                    //-     p
+                    //-         span.label= 'Theme: '
+                    //-         span.data= project.theme
+                    //-     p
+                    //-         span.label= 'Plugin: '
+                    //-         span.data= project.plugins
+                    //-     p
+                    //-         span.label= 'Project Status: '
+                    //-         span.data= project.status
+
+                    //- .project_controls
+                    //-     a.control_btn(href=`/projects/${project._id}`, target="_blank") View Project
