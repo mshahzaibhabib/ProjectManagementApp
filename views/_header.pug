@@ -2,32 +2,41 @@ header.header
     //- nav.nav-bar
     //-     if projects || project
     //-         a.header_items(href="/add-new-project") Add New Project
+    
+    nav(class="navbar navbar-expand-lg navbar-dark bg-primary")
+        .container
+            a(class="navbar-brand" href="/projects")
+                img(src="/img/MK-Softtech-logo-2.png" width="85" height="45" class="d-inline-block align-top" alt="MK Softtech Logo" loading="lazy")
+                //- span.navbar-text.text Project Management System
+            button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation")
+                span(class="navbar-toggler-icon")
 
-    nav(class="navbar navbar-expand-lg navbar-light bg-light")
-        a(class="navbar-brand" href="/projects")
-            img(src="/img/MK-Softtech-logo.png" width="85" height="45" class="d-inline-block align-top" alt="MK Softtech Logo" loading="lazy")
-            //- span.navbar-text.text Project Management System
-        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation")
-            span(class="navbar-toggler-icon")
-
-        .collapse.navbar-collapse#navbarColor03
-            ul(class="navbar-nav mr-auto")
-                li(class="nav-item active")
-                    a(class="nav-link" href="/projects") Home <span class="sr-only">(current)</span>
-                li(class="nav-item")
-                    a(class="nav-link" href="/add-new-project") Add New Project
-                li(class="nav-item")
-                    a(class="nav-link" href="#") Pricing
-                li(class="nav-item")
-                    a(class="nav-link" href="#") About
-                //- li(class="nav-item dropdown")
-                //-     a(class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Dropdown
-                //-     .dropdown-menu
-                //-         a(class="dropdown-item" href="#") Action
-                //-         a(class="dropdown-item" href="#") Another action
-                //-         a(class="dropdown-item" href="#") Something else here
-                //-         .dropdown-divider
-                //-         a(class="dropdown-item" href="#") Separated link
-            //- form(class="form-inline my-2 my-lg-0")
-            //-     input(class="form-control mr-sm-2" type="text" placeholder="Search")
-            //-     button(class="btn btn-secondary my-2 my-sm-0" type="submit") Search
+            .collapse.navbar-collapse#navbarColor03
+                ul(class="navbar-nav mr-auto")
+                    li(class="nav-item")
+                        a(class="nav-link" href="/projects")
+                            i.nav-icons(class="fas fa-home")
+                            span Home
+                    li(class="nav-item")
+                        a(class="nav-link" href="/add-new-project")
+                            i.nav-icons(class="fas fa-plus")
+                            span Add New Project
+                    li(class="nav-item")
+                        a(class="nav-link" href="#")
+                            i.nav-icons(class="fas fa-sign-in-alt")
+                            span Sign In
+                    //- li(class="nav-item")
+                    //-     a(class="nav-link" href="#") Pricing
+                    //- li(class="nav-item")
+                    //-     a(class="nav-link" href="#") About
+                    //- li(class="nav-item dropdown")
+                    //-     a(class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Dropdown
+                    //-     .dropdown-menu
+                    //-         a(class="dropdown-item" href="#") Action
+                    //-         a(class="dropdown-item" href="#") Another action
+                    //-         a(class="dropdown-item" href="#") Something else here
+                    //-         .dropdown-divider
+                    //-         a(class="dropdown-item" href="#") Separated link
+                //- form(class="form-inline my-2 my-lg-0")
+                //-     input(class="form-control mr-sm-2" type="text" placeholder="Search")
+                //-     button(class="btn btn-secondary my-2 my-sm-0" type="submit") Search

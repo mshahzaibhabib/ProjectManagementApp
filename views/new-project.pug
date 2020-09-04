@@ -3,7 +3,25 @@ block content
     main.main
         .cards_container
             .card.bg-light.border-light.mb-3
-                    h2.card-header= project.projectName
+                    .card-header.headingOne.text-left
+                        .header-column
+                            h2.header-item.header-text= project.projectName
+                        .header-column.details-side
+                            img.header-item.source-logo-svg(src=`/img/svg/${project.projectSource.toLowerCase()}.svg`, alt="Project Source Logo")
+                            - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium'})
+                            h5.header-item.header-text
+                                i(class="far fa-calendar-check")
+                                span= dueDate
+                            - let badgeType = '';
+                                if project.workProgress === 'On Track'
+                                    - badgeType = 'success';
+                                else if project.workProgress === 'Delayed'
+                                    - badgeType = 'danger'
+                                else if project.workProgress === 'Paused'
+                                    - badgeType = 'dark'
+                                else if project.workProgress === 'Finished'
+                                    - badgeType = 'primary'
+                            span(class=`header-item badge badge-${badgeType}`)= project.workProgress
                     .card-body-wrapper
                         .card-body
                             //- h4.card-title= project.projectName
@@ -17,13 +35,24 @@ block content
                             h5.card-text
                                 span.label= 'Start Date: '
                                 span= startDate
-                            - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
-                            h5.card-text
-                                span.label= 'Due Date: '
-                                span= dueDate
+                            //- - const dueDate = project.dueDate.toLocaleString('en-us', { dateStyle: 'medium', timeStyle: 'short'})
+                            //- h5.card-text
+                            //-     span.label= 'Due Date: '
+                            //-     span= dueDate
                             h5.card-text
                                 span.label= 'Project Manager: '
                                 span.data= project.projectManager
+                            - let statusType = '';
+                                if project.status === 'Started'
+                                    - statusType = 'dark'
+                                if project.status === 'Completed'
+                                    - statusType = 'primary'
+                                if project.status === 'Delivered'
+                                    - statusType = 'success'
+                            h5.card-text
+                                span.label= 'Project Status: '
+                                //- span.data= project.status
+                                span.data(class=`badge badge-${statusType}`)= project.status                     
                         
                         .card-body
                             h5.card-text
@@ -38,8 +67,6 @@ block content
                             h5.card-text
                                 span.label= 'Plugin: '
                                 span.data= project.plugins
-                            h5.card-text
-                                span.label= 'Project Status: '
-                                span.data= project.status                       
-                            a.card-link(href=`/update-project/${project._id}`) EDIT
-                            a.card-link(href="/projects") DELETE
+                            .controls-wrapper
+                                a.control-item.btn.btn-primary(href=`/update-project/${project._id}`) EDIT
+                                a.control-item.btn.btn-danger(href="/projects") DELETE

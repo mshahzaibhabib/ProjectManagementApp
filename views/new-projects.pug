@@ -7,7 +7,7 @@ block content
                     .card.bg-light.border-light.mb-3
                         .card-header.headingOne.btn.btn-link.btn-block.text-left(type="button" data-toggle="collapse" data-target=`#id${project._id}` aria-expanded="true" aria-controls=`id${project._id}`) 
                             .header-column
-                                h2.header-item.header-text= project.projectName
+                                h4.header-item.header-text= project.projectName
                                 //- h5.header-item.header-text= project.projectSource
                             .header-column.details-side
                                 img.header-item.source-logo-svg(src=`/img/svg/${project.projectSource.toLowerCase()}.svg`, alt="Project Source Logo")
@@ -15,7 +15,16 @@ block content
                                 h5.header-item.header-text
                                     i(class="far fa-calendar-check")
                                     span= dueDate
-                                span.header-item.header-text.badge.badge-primary= project.workProgress
+                                - let badgeType = '';
+                                    if project.workProgress === 'On Track'
+                                        - badgeType = 'success';
+                                    else if project.workProgress === 'Delayed'
+                                        - badgeType = 'danger'
+                                    else if project.workProgress === 'Paused'
+                                        - badgeType = 'dark'
+                                    else if project.workProgress === 'Finished'
+                                        - badgeType = 'primary'
+                                span(class=`header-item badge badge-${badgeType}`)= project.workProgress
                         .collapse(id= `id${project._id}` aria-labelledby="headingOne" data-parent="#accordionExample")
                             .card-body-wrapper
                                 .card-body
@@ -39,6 +48,17 @@ block content
                                     //- h5.card-text
                                     //-     span.label= 'Working Progress: '
                                     //-     span.data= project.workProgress
+                                    - let statusType = '';
+                                        if project.status === 'Started'
+                                            - statusType = 'dark'
+                                        if project.status === 'Completed'
+                                            - statusType = 'primary'
+                                        if project.status === 'Delivered'
+                                            - statusType = 'success'
+                                    h5.card-text
+                                        span.label= 'Project Status: '
+                                        //- span.data= project.status
+                                        span.data(class=`badge badge-${statusType}`)= project.status
                                     a.card-link(href=`/projects/${project._id}`, target="_blank") View Project
                                         i(class="fas fa-arrow-right")
                                 .card-body

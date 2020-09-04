@@ -1,9 +1,16 @@
+$red: #ff0000;
+
 @import "./../../node_modules/bootswatch/dist/lumen/variables";
 @import "./../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./../../node_modules/bootswatch/dist/lumen/bootswatch";
 
 body {
     // background-color: #f8f8f8;
+}
+
+nav.navbar {
+    background-image: linear-gradient(90deg, #0a4b80, #2379be);
+    border: none;
 }
 
 nav.navbar.navbar-expand-lg {
@@ -13,22 +20,36 @@ nav.navbar.navbar-expand-lg {
 
 ul.navbar-nav.mr-auto {
     // margin-right: 0px !important;
-    margin-right: 6% !important;
+    margin-right: 0px !important;
     margin-left: auto;
 }
 
+li.nav-item {
+    margin-right: 20px;
+}
+
 a.nav-link {
-    color: #2379be !important;
-    font-size: 1.3em;
+    // color: #2379be !important;
+    color: #f8f8f8 !important;
+    font-size: 1.2em;
     font-weight: 400;
 }
 
 a.nav-link:hover {
-    color: #0a4b80 !important;
+    color: #d9d9d9 !important;
 }
 
+nav.navbar i.nav-icons {
+    margin-right: 10px;
+}
+
+// a.nav-link:active {
+//     font-weight: 600;
+//     color: #d9d9d9 !important;
+// }
+
 main.main {
-    width: 90%;
+    // width: 90%;
     // margin-left: auto;
     // margin-right: auto;
     margin: 40px auto;
@@ -38,11 +59,14 @@ main.main {
 *********************************************************************************************/
 
 .projects-accordion {
-    width: 90%;
+    // width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
 
+.card .card-header {
+    // background-color: #f2f2f2;
+}
 
 .card-header {
     // background-color: #0a4b80;
@@ -60,9 +84,22 @@ main.main {
     float: left;
 }
 
+.header-item.header-text {
+    color: #2379be;
+}
+
+h4.header-item.header-text {
+    padding-top: 7px;
+}
+
 .header-column.details-side {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.header-column.details-side .header-item {
+    margin: 0px;
 }
 
 .header-text i {
@@ -92,12 +129,21 @@ main.main {
     max-width: 50%;
 }
 
+.card-body .controls-wrapper {
+    margin-top: 100px;
+}
+
 .card p.card-text {
     margin: 0px;
 }
 
 .card-body .card-text span.label {
     font-weight: 600;
+}
+
+.card-body .control-item {
+    padding: 2px 10px;
+    margin-right: 10px;
 }
 
 a.card-link {
@@ -108,14 +154,15 @@ a.card-link {
     // background-color: #0a4b80;
     // padding: 5px 15px;
     // border-radius: 2px;
-    color: #2379be;
+    // color: #2379be;
     font-weight: 600;
     font-size: 1.2em;
+    // padding: 2px 10px;
 }
 
-a.card-link:hover {
-    color: #0a4b80;
-}
+// a.card-link:hover {
+//     color: #0a4b80;
+// }
 
 a.card-link i {
     margin-left: 10px;
