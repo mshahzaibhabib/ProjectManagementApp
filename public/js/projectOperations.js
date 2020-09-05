@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 
-export const addNewProject = async (projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status) => {
+export const addNewProject = async (projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) => {
     try {
 
         // STRING MANIPULATION
@@ -12,7 +12,7 @@ export const addNewProject = async (projectName, projectSource, clientName, deve
         plugins = plugins.split(',');
 
 
-        console.log(`${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status}`);
+        console.log(`${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status} | ${workProgress}`);
 
 
         // SENDING REQUEST
@@ -30,7 +30,8 @@ export const addNewProject = async (projectName, projectSource, clientName, deve
                 platform,
                 theme,
                 plugins,
-                status
+                status,
+                workProgress
             }
         });
 
@@ -48,7 +49,7 @@ export const addNewProject = async (projectName, projectSource, clientName, deve
     }
 };
 
-export const updateProject = async (projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status) => {
+export const updateProject = async (projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) => {
     try {
 
         // STRING MANIPULATION
@@ -58,7 +59,7 @@ export const updateProject = async (projectId, projectName, projectSource, clien
         plugins = plugins.split(',');
 
 
-        console.log(`${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status}`);
+        console.log(`${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status} | ${workProgress}`);
 
 
         // SENDING REQUEST
@@ -76,7 +77,8 @@ export const updateProject = async (projectId, projectName, projectSource, clien
                 platform,
                 theme,
                 plugins,
-                status
+                status,
+                workProgress
             }
         });
 

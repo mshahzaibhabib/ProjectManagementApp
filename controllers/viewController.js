@@ -40,11 +40,33 @@ exports.getProject = catchAsync(async (req, res, next) => {
     });
 });
 
+// exports.addNewProject = catchAsync(async (req, res, next) => {
+//     res.status(200).render('addProject', {
+//         title: 'Add New Project'
+//     });
+// });
+
+exports.addNewProject = catchAsync(async (req, res, next) => {
+    res.status(200).render('new-addProject', {
+        title: 'Add New Project'
+    });
+});
+
+// exports.updateProject = catchAsync(async (req, res, next) => {
+//     const project = await Project.findById(req.params.id);
+//     // console.log('\n', project.startDate);
+//     // console.log(project.dueDate, '\n');
+//     res.status(200).render('updateProject', {
+//         title: project.projectName,
+//         project
+//     });
+// });
+
 exports.updateProject = catchAsync(async (req, res, next) => {
     const project = await Project.findById(req.params.id);
     // console.log('\n', project.startDate);
     // console.log(project.dueDate, '\n');
-    res.status(200).render('updateProject', {
+    res.status(200).render('new-updateProject', {
         title: project.projectName,
         project
     });
@@ -56,11 +78,5 @@ exports.getUsers = catchAsync(async (req, res, next) => {
     res.status(200).render('users', {
         title: 'Users',
         users
-    });
-});
-
-exports.addNewProject = catchAsync(async (req, res, next) => {
-    res.status(200).render('addProject', {
-        title: 'Add New Project'
     });
 });

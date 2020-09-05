@@ -4,9 +4,9 @@ import { addNewProject, updateProject, deleteProject } from './projectOperations
 
 
 // DOM ELEMENTS
-const addNewProjectForm = document.querySelector('form.form.add_new');
-const deleteProjectButton = document.querySelector('a.control_btn.delete-btn');
-const updateProjectForm = document.querySelector('form.form.update');
+const addNewProjectForm = document.querySelector('form.form.add_new_project');
+const deleteProjectButton = document.querySelector('a.delete_project_btn');
+const updateProjectForm = document.querySelector('form.form.update_project');
 console.log('Hello');
 
 
@@ -27,6 +27,7 @@ if (addNewProjectForm) {
         const theme = document.getElementById('theme').value;
         const plugins = document.getElementById('plugins').value;
         const status = document.getElementById('status').value;
+        const workProgress = document.getElementById('workProgress').value;
 
         const developerCheckboxes = document.getElementsByName('developers');
         let developers = '';
@@ -37,9 +38,9 @@ if (addNewProjectForm) {
             }
         }
 
-        console.log(`${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status}`);
+        console.log(`${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status} | ${workProgress}`);
 
-        addNewProject(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status);
+        addNewProject(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress);
     });
 }
 
@@ -58,6 +59,7 @@ if (updateProjectForm) {
         const theme = document.getElementById('theme').value;
         const plugins = document.getElementById('plugins').value;
         const status = document.getElementById('status').value;
+        const workProgress = document.getElementById('workProgress').value;
 
         const developerCheckboxes = document.getElementsByName('developers');
         let developers = '';
@@ -70,9 +72,9 @@ if (updateProjectForm) {
 
         const projectId = window.location.href.split('/update-project/')[1];
 
-        console.log(`${projectId} ${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status}`);
+        console.log(`${projectId} ${projectName} | ${projectSource} | ${clientName} | ${developers} | ${projectManager} | ${startDate} | ${dueDate} | ${platform} | ${theme} | ${plugins} | ${status} | ${workProgress}`);
 
-        updateProject(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status);
+        updateProject(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress);
     });
 }
 

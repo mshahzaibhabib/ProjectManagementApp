@@ -1,0 +1,89 @@
+extends base
+block content
+    main.main
+        .form
+            .card.bg-light.border-light.mb-3
+                .card-header.headingOne.text-left
+                    .header-column
+                        h2.header-item.header-text Update Project
+                form.form.update_project
+                    .card-body-wrapper
+                        .card-body
+                            .form_group
+                                label.col-form-label.form_label(for="projectName") Project Name
+                                input.form-control#projectName(type='text',name="projectName", placeholder='', value=`${project.projectName}`, autofocus= true, required)
+                            .form_group
+                                label.col-form-label.form_label Project Source
+                                select.form-control#projectSource(name="projectSource", value=`${project.projectSource}`, required)
+                                    option(value="Fiverr", selected= project.projectSource == 'Fiverr') Fiverr
+                                    option(value="Upwork", selected= project.projectSource == 'Upwork') Upwork
+                                    option(value="Pinease", selected= project.projectSource == 'Pinease') Pinease
+                                    option(value="Sitex", selected= project.projectSource == 'Sitex') Sitex
+                                    option(value="Personal", selected= project.projectSource == 'Personal') Personal
+                            .form_group
+                                label.col-form-label.form_label Client Name
+                                input.form-control#clientName(type='text',name="clientName", placeholder='', value=`${project.clientName}`, required)
+                            .form_group
+                                label.col-form-label.form_label Start Date
+                                - const startDateTime = new Date(project.startDate);
+                                - const newStartDateTime = `${startDateTime.getFullYear()}-${(startDateTime.getMonth() + 1).toString().padStart(2, '0')}-${startDateTime.getDate().toString().padStart(2, '0')}T${startDateTime.getHours().toString().padStart(2, '0')}:${startDateTime.getMinutes().toString().padStart(2, '0')}`
+                                input.form-control#startDate(type='datetime-local', name="startDate" ,, value= newStartDateTime, required)
+                            .form_group
+                                label.col-form-label.form_label Due Date
+                                - const dueDateTime = new Date(project.dueDate);
+                                - const newDueDateTime = `${dueDateTime.getFullYear()}-${(dueDateTime.getMonth() + 1).toString().padStart(2, '0')}-${dueDateTime.getDate().toString().padStart(2, '0')}T${dueDateTime.getHours().toString().padStart(2, '0')}:${dueDateTime.getMinutes().toString().padStart(2, '0')}`
+                                input.form-control#dueDate(type='datetime-local', name="dueDate" ,, value=newDueDateTime, required)
+                            .form_group
+                                label.col-form-label.form_label Project Manager
+                                select.form-control#projectManager(name="projectManager", required)
+                                    option(value="Faheem Abbas", selected= project.projectManager == 'Faheem Abbas') Faheem Abbas
+                                    option(value="Kazim Raza", selected= project.projectManager == 'Kazim Raza') Kazim Raza
+                        .card-body
+                            .form_group
+                                label.col-form-label.form_label Developer(s)
+                                .checkbox-wrapper
+                                    div.form-check
+                                        input.form-check-input#uzair-haider(type="checkbox", name="developers", checked= project.developers.includes('Uzair Haider'), value="Uzair Haider")
+                                        label.form-check-label(for="uzair-haider") Uzair Haider
+                                    div.form-check
+                                        input.form-check-input#hasnain-raza(type="checkbox", name="developers", checked= project.developers.includes('Hasnain Raza'), value="Hasnain Raza")
+                                        label.form-check-label(for="hasnain-raza") Hasnain Raza
+                                    div.form-check
+                                        input.form-check-input#muhammad-karrar(type="checkbox", name="developers", checked= project.developers.includes('Muhammad karrar'), value="Muhammad Karrar")
+                                        label.form-check-label(for="muhammad-karrar") Muhammad Karrar
+                                    div.form-check
+                                        input.form-check-input#ali-hadi(type="checkbox", name="developers", checked= project.developers.includes('Ali Hadi'), value="Ali Hadi")
+                                        label.form-check-label(for="ali-hadi") Ali Hadi
+                                    div.form-check                            
+                                        input.form-check-input#majid-ali(type="checkbox", name="developers", checked= project.developers.includes('Majid Ali'), value="Majid Ali")
+                                        label.form-check-label(for="majid-ali") Majid Ali
+                                    div.form-check
+                                        input.form-check-input#shahzaib-habib-ansari(type="checkbox", name="developers", checked= project.developers.includes('Shahzaib Habib Ansari'), value="Shahzaib Habib Ansari")
+                                        label.form-check-label(for="shahzaib-habib-ansari") Shahzaib Habib Ansari
+                            .form_group
+                                label.col-form-label.form_label Platform
+                                select.form-control#platform(name="platform", required)
+                                    option(value="Wordpress", selected= project.platform == 'Wordpress') Wordpress
+                                    option(value="Shopify", selected= project.platform == 'Shopify') Shopify
+                                    option(value="Zendesk", selected= project.platform == 'Zendesk') Zendesk
+                            .form_group
+                                label.col-form-label.form_label Theme
+                                input.form-control#theme(type='text', name="theme", placeholder='', value=`${project.theme}`, required)
+                            .form_group
+                                label.col-form-label.form_label Plugin(s)
+                                input.form-control#plugins(type='text', name="plugins", placeholder='', value=`${project.plugins}`, required)
+                            .form_group
+                                label.col-form-label.form_label Status
+                                select.form-control#status(name="status", value=`${project.status}`, required)
+                                    option(value="Started", selected= project.status == 'Started') Started
+                                    option(value="Completed", selected= project.status == 'Completed') Completed
+                                    option(value="Delivered", selected= project.status == 'Delivered') Delivered
+                            .form-group
+                                label.col-form-label.form_label Work Progress
+                                select.form-control#workProgress(name="workProgress", value=`${project.workProgress}`, required)
+                                    option(value="On Track", selected= project.workProgress == 'On Track') On Track
+                                    option(value="Delayed", selected= project.workProgress == 'Delayed') Delayed
+                                    option(value="Paused", selected= project.workProgress == 'Paused') Paused
+                                    option(value="Finished", selected= project.workProgress == 'Finished') Finished
+                            .form_group
+                                input.btn.btn-primary#submit-btn(type="submit", value="Update Project")

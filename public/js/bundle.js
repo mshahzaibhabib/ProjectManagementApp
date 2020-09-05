@@ -8377,7 +8377,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var addNewProject = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) {
     var res;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -8389,7 +8389,7 @@ var addNewProject = /*#__PURE__*/function () {
 
             developers.pop();
             plugins = plugins.split(',');
-            console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status)); // SENDING REQUEST
+            console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status, " | ").concat(workProgress)); // SENDING REQUEST
 
             _context.next = 7;
             return (0, _axios.default)({
@@ -8406,7 +8406,8 @@ var addNewProject = /*#__PURE__*/function () {
                 platform: platform,
                 theme: theme,
                 plugins: plugins,
-                status: status
+                status: status,
+                workProgress: workProgress
               }
             });
 
@@ -8437,7 +8438,7 @@ var addNewProject = /*#__PURE__*/function () {
     }, _callee, null, [[0, 12]]);
   }));
 
-  return function addNewProject(_x, _x2, _x3, _x4, _x5, _x6, _x7, _x8, _x9, _x10, _x11) {
+  return function addNewProject(_x, _x2, _x3, _x4, _x5, _x6, _x7, _x8, _x9, _x10, _x11, _x12) {
     return _ref.apply(this, arguments);
   };
 }();
@@ -8445,7 +8446,7 @@ var addNewProject = /*#__PURE__*/function () {
 exports.addNewProject = addNewProject;
 
 var updateProject = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) {
     var res;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
@@ -8457,7 +8458,7 @@ var updateProject = /*#__PURE__*/function () {
 
             developers.pop();
             plugins = plugins.split(',');
-            console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status)); // SENDING REQUEST
+            console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status, " | ").concat(workProgress)); // SENDING REQUEST
 
             _context2.next = 7;
             return (0, _axios.default)({
@@ -8474,7 +8475,8 @@ var updateProject = /*#__PURE__*/function () {
                 platform: platform,
                 theme: theme,
                 plugins: plugins,
-                status: status
+                status: status,
+                workProgress: workProgress
               }
             });
 
@@ -8505,7 +8507,7 @@ var updateProject = /*#__PURE__*/function () {
     }, _callee2, null, [[0, 12]]);
   }));
 
-  return function updateProject(_x12, _x13, _x14, _x15, _x16, _x17, _x18, _x19, _x20, _x21, _x22, _x23) {
+  return function updateProject(_x13, _x14, _x15, _x16, _x17, _x18, _x19, _x20, _x21, _x22, _x23, _x24, _x25) {
     return _ref2.apply(this, arguments);
   };
 }();
@@ -8553,7 +8555,7 @@ var deleteProject = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 8]]);
   }));
 
-  return function deleteProject(_x24) {
+  return function deleteProject(_x26) {
     return _ref3.apply(this, arguments);
   };
 }();
@@ -8821,9 +8823,9 @@ require("regenerator-runtime/runtime");
 var _projectOperations = require("./projectOperations");
 
 // DOM ELEMENTS
-var addNewProjectForm = document.querySelector('form.form.add_new');
-var deleteProjectButton = document.querySelector('a.control_btn.delete-btn');
-var updateProjectForm = document.querySelector('form.form.update');
+var addNewProjectForm = document.querySelector('form.form.add_new_project');
+var deleteProjectButton = document.querySelector('a.delete_project_btn');
+var updateProjectForm = document.querySelector('form.form.update_project');
 console.log('Hello'); // DELAGATION
 
 if (addNewProjectForm) {
@@ -8842,6 +8844,7 @@ if (addNewProjectForm) {
     var theme = document.getElementById('theme').value;
     var plugins = document.getElementById('plugins').value;
     var status = document.getElementById('status').value;
+    var workProgress = document.getElementById('workProgress').value;
     var developerCheckboxes = document.getElementsByName('developers');
     var developers = '';
 
@@ -8851,8 +8854,8 @@ if (addNewProjectForm) {
       }
     }
 
-    console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status));
-    (0, _projectOperations.addNewProject)(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status);
+    console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status, " | ").concat(workProgress));
+    (0, _projectOperations.addNewProject)(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress);
   });
 }
 
@@ -8871,6 +8874,7 @@ if (updateProjectForm) {
     var theme = document.getElementById('theme').value;
     var plugins = document.getElementById('plugins').value;
     var status = document.getElementById('status').value;
+    var workProgress = document.getElementById('workProgress').value;
     var developerCheckboxes = document.getElementsByName('developers');
     var developers = '';
 
@@ -8881,8 +8885,8 @@ if (updateProjectForm) {
     }
 
     var projectId = window.location.href.split('/update-project/')[1];
-    console.log("".concat(projectId, " ").concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status));
-    (0, _projectOperations.updateProject)(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status);
+    console.log("".concat(projectId, " ").concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status, " | ").concat(workProgress));
+    (0, _projectOperations.updateProject)(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress);
   });
 }
 
@@ -8922,7 +8926,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59880" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65220" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
