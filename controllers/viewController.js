@@ -4,69 +4,35 @@ const catchAsync = require('./../utils/catchAsync');
 
 
 
-// exports.getProjects = catchAsync(async (req, res, next) => {
-//     const projects = await Project.find();
-
-//     res.status(200).render('projects', {
-//         title: 'All Projects',
-//         projects
-//     });
-// });
-
 exports.getProjects = catchAsync(async (req, res, next) => {
     const projects = await Project.find();
 
-    res.status(200).render('new-projects', {
+    res.status(200).render('projects', {
         title: 'All Projects',
         projects
     });
 });
 
-// exports.getProject = catchAsync(async (req, res, next) => {
-//     const project = await Project.findById(req.params.id);
-
-//     res.status(200).render('project', {
-//         title: project.projectName,
-//         project
-//     });
-// });
-
 exports.getProject = catchAsync(async (req, res, next) => {
     const project = await Project.findById(req.params.id);
 
-    res.status(200).render('new-project', {
+    res.status(200).render('project', {
         title: project.projectName,
         project
     });
 });
 
-// exports.addNewProject = catchAsync(async (req, res, next) => {
-//     res.status(200).render('addProject', {
-//         title: 'Add New Project'
-//     });
-// });
-
 exports.addNewProject = catchAsync(async (req, res, next) => {
-    res.status(200).render('new-addProject', {
+    res.status(200).render('addProject', {
         title: 'Add New Project'
     });
 });
-
-// exports.updateProject = catchAsync(async (req, res, next) => {
-//     const project = await Project.findById(req.params.id);
-//     // console.log('\n', project.startDate);
-//     // console.log(project.dueDate, '\n');
-//     res.status(200).render('updateProject', {
-//         title: project.projectName,
-//         project
-//     });
-// });
 
 exports.updateProject = catchAsync(async (req, res, next) => {
     const project = await Project.findById(req.params.id);
     // console.log('\n', project.startDate);
     // console.log(project.dueDate, '\n');
-    res.status(200).render('new-updateProject', {
+    res.status(200).render('updateProject', {
         title: project.projectName,
         project
     });
