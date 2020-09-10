@@ -11249,7 +11249,77 @@ nav.navbar ul.navbar-nav.mr-auto li.nav-item a.nav-link:hover {
 ****************************************************    Cards     ****************************
 *********************************************************************************************/
 main.main {
-  margin: 40px auto;
+  margin: 10px auto;
+}
+
+main.main .filter-control-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+
+main.main .filter-control-wrapper .search-form-wrapper .form-inline .form-control {
+  width: 180px;
+}
+
+main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.btn-primary {
+  padding: 3px 6px;
+}
+
+main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.first {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.second i.fas.fa-filter {
+  margin-right: 5px;
+}
+
+main.main .accordion#filter-accordion .card-body {
+  padding-top: 0px;
+}
+
+main.main .accordion#filter-accordion .card-body .checkbox-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset {
+  margin-right: 40px;
+}
+
+main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper legend {
+  color: #666666;
+  font-size: 1.4em;
+}
+
+main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group {
+  margin-bottom: 5px;
+}
+
+main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group .custom-control.custom-checkbox {
+  color: #808080;
+}
+
+main.main .accordion#filter-accordion .card-body .checkbox-wrapper .submit-btn-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 main.main .card.heading {
@@ -11364,6 +11434,51 @@ main.main .card .card-body-wrapper .card-body .controls-wrapper {
   main.main {
     margin: 20px auto;
   }
+  main.main .filter-control-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 20px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .form-control {
+    width: 300px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.btn-primary {
+    padding: 6px 12px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.first {
+    margin-right: 5px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.second i.fas.fa-filter {
+    margin-right: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body {
+    padding-top: 0px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset {
+    margin-right: 40px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper legend {
+    color: #666666;
+    font-size: 1.4em;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group {
+    margin-bottom: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group .custom-control.custom-checkbox {
+    color: #808080;
+  }
   main.main .card.heading .header-column {
     width: 50%;
     float: left;
@@ -11459,9 +11574,102 @@ main.main .card .card-body-wrapper .card-body .controls-wrapper {
   }
 }
 
+@media (min-width: 768px) {
+  main.main .filter-control-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 20px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .form-control {
+    width: 400px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.btn-primary {
+    padding: 6px 12px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.first {
+    margin-right: 5px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.second i.fas.fa-filter {
+    margin-right: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body {
+    padding-top: 0px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset {
+    margin-right: 40px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper legend {
+    color: #666666;
+    font-size: 1.4em;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group {
+    margin-bottom: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group .custom-control.custom-checkbox {
+    color: #808080;
+  }
+}
+
 @media (min-width: 992px) {
   main.main {
     margin: 20px auto;
+  }
+  main.main .filter-control-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 20px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .form-control {
+    width: 600px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.btn-primary {
+    padding: 6px 12px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.first {
+    margin-right: 5px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.second i.fas.fa-filter {
+    margin-right: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body {
+    padding-top: 0px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset {
+    margin-right: 40px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper legend {
+    color: #666666;
+    font-size: 1.4em;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group {
+    margin-bottom: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group .custom-control.custom-checkbox {
+    color: #808080;
   }
   main.main .card.heading .header-column {
     width: 50%;
@@ -11557,6 +11765,51 @@ main.main .card .card-body-wrapper .card-body .controls-wrapper {
 @media (min-width: 1200px) {
   main.main {
     margin: 40px auto;
+  }
+  main.main .filter-control-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 20px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .form-control {
+    width: 600px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.btn-primary {
+    padding: 6px 12px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.first {
+    margin-right: 5px;
+  }
+  main.main .filter-control-wrapper .search-form-wrapper .form-inline .btn.second i.fas.fa-filter {
+    margin-right: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body {
+    padding-top: 0px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset {
+    margin-right: 40px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper legend {
+    color: #666666;
+    font-size: 1.4em;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group {
+    margin-bottom: 5px;
+  }
+  main.main .accordion#filter-accordion .card-body .checkbox-wrapper fieldset .checkbox-form-wrapper .form-group .custom-control.custom-checkbox {
+    color: #808080;
   }
   main.main .card.heading .header-column {
     width: 50%;

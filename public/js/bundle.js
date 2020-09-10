@@ -8366,7 +8366,7 @@ module.exports = require('./lib/axios');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteProject = exports.updateProject = exports.addNewProject = void 0;
+exports.deleteProject = exports.updateProject = exports.addNewProject = exports.filterProjects = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -8376,77 +8376,62 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var addNewProject = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) {
-    var res;
+var filterProjects = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(projectSource, projectPlatform, projectStatus) {
+    var querySourcePart, queryPlatformPart, queryStatusPart, queryString;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            // STRING MANIPULATION
-            developers = developers.split(','); // removes last ", " separator
-
-            developers.pop();
-            plugins = plugins.split(',');
-            console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status, " | ").concat(workProgress)); // SENDING REQUEST
-
-            _context.next = 7;
-            return (0, _axios.default)({
-              method: 'POST',
-              url: '/api/v1/projects/',
-              data: {
-                projectName: projectName,
-                projectSource: projectSource,
-                clientName: clientName,
-                developers: developers,
-                projectManager: projectManager,
-                startDate: startDate,
-                dueDate: dueDate,
-                platform: platform,
-                theme: theme,
-                plugins: plugins,
-                status: status,
-                workProgress: workProgress
-              }
-            });
-
-          case 7:
-            res = _context.sent;
-            console.log(res);
-
-            if (res.data.status === 'success') {
-              console.log('Project successfully created!');
-              setTimeout(function () {
-                window.location.href = '/projects';
-              }, 1500);
+            try {
+              querySourcePart = '';
+              queryPlatformPart = '';
+              queryStatusPart = '';
+              queryString = '';
+              projectSource.forEach(function (el) {
+                return querySourcePart += 'projectSource=' + el + '&';
+              });
+              projectPlatform.forEach(function (el) {
+                return queryPlatformPart += 'platform=' + el + '&';
+              });
+              projectStatus.forEach(function (el) {
+                return queryStatusPart += 'status=' + el + '&';
+              });
+              queryString = '?' + querySourcePart + queryPlatformPart + queryStatusPart;
+              console.log(queryString);
+              window.location.href = queryString; // const res = await axios({
+              //     method: "GET",
+              //     url: `${queryString}`
+              // })
+              // console.log(res);
+              // window.location.href = queryString;
+              // if (res.status === 200) {
+              //     console.log('Project successfully created!');
+              //     setTimeout(() => {
+              //         window.location.href = queryString;
+              //     }, 500);
+              // }
+            } catch (err) {
+              console.log(err);
             }
 
-            _context.next = 15;
-            break;
-
-          case 12:
-            _context.prev = 12;
-            _context.t0 = _context["catch"](0);
-            console.log(_context.t0);
-
-          case 15:
+          case 1:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 12]]);
+    }, _callee);
   }));
 
-  return function addNewProject(_x, _x2, _x3, _x4, _x5, _x6, _x7, _x8, _x9, _x10, _x11, _x12) {
+  return function filterProjects(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
 }();
 
-exports.addNewProject = addNewProject;
+exports.filterProjects = filterProjects;
 
-var updateProject = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) {
+var addNewProject = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) {
     var res;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
@@ -8462,8 +8447,8 @@ var updateProject = /*#__PURE__*/function () {
 
             _context2.next = 7;
             return (0, _axios.default)({
-              method: 'PATCH',
-              url: "/api/v1/projects/".concat(projectId),
+              method: 'POST',
+              url: '/api/v1/projects/',
               data: {
                 projectName: projectName,
                 projectSource: projectSource,
@@ -8485,7 +8470,7 @@ var updateProject = /*#__PURE__*/function () {
             console.log(res);
 
             if (res.data.status === 'success') {
-              console.log('Project successfully updated!');
+              console.log('Project successfully created!');
               setTimeout(function () {
                 window.location.href = '/projects';
               }, 1500);
@@ -8507,29 +8492,98 @@ var updateProject = /*#__PURE__*/function () {
     }, _callee2, null, [[0, 12]]);
   }));
 
-  return function updateProject(_x13, _x14, _x15, _x16, _x17, _x18, _x19, _x20, _x21, _x22, _x23, _x24, _x25) {
+  return function addNewProject(_x4, _x5, _x6, _x7, _x8, _x9, _x10, _x11, _x12, _x13, _x14, _x15) {
     return _ref2.apply(this, arguments);
   };
 }();
 
-exports.updateProject = updateProject;
+exports.addNewProject = addNewProject;
 
-var deleteProject = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(projectId) {
+var updateProject = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(projectId, projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) {
     var res;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
-            _context3.next = 3;
+            // STRING MANIPULATION
+            developers = developers.split(','); // removes last ", " separator
+
+            developers.pop();
+            plugins = plugins.split(',');
+            console.log("".concat(projectName, " | ").concat(projectSource, " | ").concat(clientName, " | ").concat(developers, " | ").concat(projectManager, " | ").concat(startDate, " | ").concat(dueDate, " | ").concat(platform, " | ").concat(theme, " | ").concat(plugins, " | ").concat(status, " | ").concat(workProgress)); // SENDING REQUEST
+
+            _context3.next = 7;
+            return (0, _axios.default)({
+              method: 'PATCH',
+              url: "/api/v1/projects/".concat(projectId),
+              data: {
+                projectName: projectName,
+                projectSource: projectSource,
+                clientName: clientName,
+                developers: developers,
+                projectManager: projectManager,
+                startDate: startDate,
+                dueDate: dueDate,
+                platform: platform,
+                theme: theme,
+                plugins: plugins,
+                status: status,
+                workProgress: workProgress
+              }
+            });
+
+          case 7:
+            res = _context3.sent;
+            console.log(res);
+
+            if (res.data.status === 'success') {
+              console.log('Project successfully updated!');
+              setTimeout(function () {
+                window.location.href = '/projects';
+              }, 1500);
+            }
+
+            _context3.next = 15;
+            break;
+
+          case 12:
+            _context3.prev = 12;
+            _context3.t0 = _context3["catch"](0);
+            console.log(_context3.t0);
+
+          case 15:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[0, 12]]);
+  }));
+
+  return function updateProject(_x16, _x17, _x18, _x19, _x20, _x21, _x22, _x23, _x24, _x25, _x26, _x27, _x28) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+exports.updateProject = updateProject;
+
+var deleteProject = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(projectId) {
+    var res;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            _context4.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
               url: "/api/v1/projects/".concat(projectId)
             });
 
           case 3:
-            res = _context3.sent;
+            res = _context4.sent;
             console.log(res);
 
             if (res.status === 204) {
@@ -8539,24 +8593,24 @@ var deleteProject = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context3.next = 11;
+            _context4.next = 11;
             break;
 
           case 8:
-            _context3.prev = 8;
-            _context3.t0 = _context3["catch"](0);
-            console.log(_context3.t0);
+            _context4.prev = 8;
+            _context4.t0 = _context4["catch"](0);
+            console.log(_context4.t0);
 
           case 11:
           case "end":
-            return _context3.stop();
+            return _context4.stop();
         }
       }
-    }, _callee3, null, [[0, 8]]);
+    }, _callee4, null, [[0, 8]]);
   }));
 
-  return function deleteProject(_x26) {
-    return _ref3.apply(this, arguments);
+  return function deleteProject(_x29) {
+    return _ref4.apply(this, arguments);
   };
 }();
 
@@ -8826,13 +8880,50 @@ var _projectOperations = require("./projectOperations");
 var addNewProjectForm = document.querySelector('form.form.add_new_project');
 var deleteProjectButton = document.querySelector('a.delete_project_btn');
 var updateProjectForm = document.querySelector('form.form.update_project');
-console.log('Hello'); // DELAGATION
+var projectSearchForm = document.querySelector('form.search-form');
+var projectFilterForm = document.querySelector('#filter-accordion form.filter-form'); // DELAGATION
+
+if (projectSearchForm) {
+  console.log('Search Form Found');
+  projectSearchForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    console.log('Project Search Form');
+    var projectName = document.getElementById('projectName').value;
+    var queryString = "?projectName=".concat(projectName);
+    window.location.href = queryString;
+  });
+}
+
+if (projectFilterForm) {
+  // console.log('Filter Controls Found');
+  projectFilterForm.addEventListener('submit', function (e) {
+    e.preventDefault(); // console.log('Project Filter Submit');
+
+    var projectSourceCheckbox = document.getElementsByName('projectSource');
+    var projectPlatformcheckbox = document.getElementsByName('projectPlatform');
+    var projectStatusCheckbox = document.getElementsByName('projectStatus');
+    var projectSource = [];
+    var projectPlatform = [];
+    var projectStatus = [];
+    projectSourceCheckbox.forEach(function (el) {
+      if (el.checked) projectSource.push(el.value);
+    });
+    projectPlatformcheckbox.forEach(function (el) {
+      if (el.checked) projectPlatform.push(el.value);
+    });
+    projectStatusCheckbox.forEach(function (el) {
+      if (el.checked) projectStatus.push(el.value);
+    }); // console.log(projectSource);
+    // console.log(projectPlatform);
+    // console.log(projectStatus);
+
+    (0, _projectOperations.filterProjects)(projectSource, projectPlatform, projectStatus);
+  });
+}
 
 if (addNewProjectForm) {
-  console.log('Form found!');
   addNewProjectForm.addEventListener('submit', function (e) {
     // this prevents form from loading any other page
-    console.log('Event Listener');
     e.preventDefault();
     var projectName = document.getElementById('projectName').value;
     var projectSource = document.getElementById('projectSource').value;
@@ -8860,9 +8951,7 @@ if (addNewProjectForm) {
 }
 
 if (updateProjectForm) {
-  console.log('Update form found!');
   updateProjectForm.addEventListener('submit', function (e) {
-    console.log('Event Listener');
     e.preventDefault();
     var projectName = document.getElementById('projectName').value;
     var projectSource = document.getElementById('projectSource').value;
@@ -8926,7 +9015,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56572" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51945" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

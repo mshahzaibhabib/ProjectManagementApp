@@ -2,6 +2,42 @@ import axios from 'axios';
 
 
 
+export const filterProjects = async (projectSource, projectPlatform, projectStatus) => {
+    try {
+        let querySourcePart = '';
+        let queryPlatformPart = '';
+        let queryStatusPart = '';
+        let queryString = '';
+
+        projectSource.forEach(el => querySourcePart += 'projectSource=' + el + '&');
+        projectPlatform.forEach(el => queryPlatformPart += 'platform=' + el + '&');
+        projectStatus.forEach(el => queryStatusPart += 'status=' + el + '&');
+
+        queryString = '?' + querySourcePart + queryPlatformPart + queryStatusPart;
+
+        console.log(queryString);
+
+        window.location.href = queryString;
+
+        // const res = await axios({
+        //     method: "GET",
+        //     url: `${queryString}`
+        // })
+
+        // console.log(res);
+        // window.location.href = queryString;
+        // if (res.status === 200) {
+        //     console.log('Project successfully created!');
+        //     setTimeout(() => {
+        //         window.location.href = queryString;
+        //     }, 500);
+        // }
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 export const addNewProject = async (projectName, projectSource, clientName, developers, projectManager, startDate, dueDate, platform, theme, plugins, status, workProgress) => {
     try {
 

@@ -1,13 +1,18 @@
 const Project = require('./../models/projectModel');
 const catchAsync = require('./../utils/catchAsync');
 const appError = require('./../utils/appError');
+const APIFeatures = require('./../utils/APIfeatures');
 
 
 
 exports.getAllProjects = catchAsync(async (req, res, next) => {
 
-    const projects = await Project.find();
+    const features = new APIFeatures(Project.find(), req.query).filter();
 
+    // EXECUTE QUERY
+    const projects = await features.query;
+
+    // SEND RESPONSE
     res.status(200).json({
         status: 'success',
         results: projects.length,

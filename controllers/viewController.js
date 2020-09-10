@@ -1,11 +1,15 @@
 const Project = require('./../models/projectModel');
 const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
+const APIFeatures = require('./../utils/APIfeatures');
 
 
 
 exports.getProjects = catchAsync(async (req, res, next) => {
-    const projects = await Project.find();
+    // const projects = await Project.find();
+
+    const features = new APIFeatures(Project.find(), req.query).filter();
+    const projects = await features.query;
 
     res.status(200).render('projects', {
         title: 'All Projects',

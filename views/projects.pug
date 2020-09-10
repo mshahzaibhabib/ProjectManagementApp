@@ -1,6 +1,75 @@
 extends base
 block content
     main.main
+        .filter-control-wrapper
+            .search-form-wrapper
+                form.search-form(class="form-inline my-2 my-lg-0")
+                    input#projectName(class="form-control mr-sm-2" type="text" name="projectName" placeholder="Enter Project Name")
+                    button(class="btn btn-primary first my-2 my-sm-0" type="submit")
+                        i(class="fas fa-search")
+                    a(class="btn btn-secondary second my-2 my-sm-0" type="button" data-toggle="collapse" data-target=`#filter-acc` aria-expanded="true" aria-controls=`filter-acc`)
+                        i(class="fas fa-filter")
+                        span Filter
+        .accordion#filter-accordion
+            .collapse(id= `filter-acc` aria-labelledby="headingOne" data-parent="#filter-accordion")
+                .card-body
+                    form.filter-form
+                        .checkbox-wrapper
+                            fieldset.project-source-form-group
+                                .checkbox-form-wrapper
+                                    legend Source
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#fiverr(type="checkbox", name="projectSource", value="Fiverr")
+                                            label.custom-control-label(for="fiverr") Fiverr
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#upwork(type="checkbox", name="projectSource", value="Upwork")
+                                            label.custom-control-label(for="upwork") Upwork
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#personal(type="checkbox", name="projectSource", value="Personal")
+                                            label.custom-control-label(for="personal") Personal
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#pinease(type="checkbox", name="projectSource", value="Pinease")
+                                            label.custom-control-label(for="pinease") Pinease
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#sitex(type="checkbox", name="projectSource", value="Sitex")
+                                            label.custom-control-label(for="sitex") Sitex
+                            fieldset.platform-form-group
+                                .checkbox-form-wrapper
+                                    legend Platform
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#wordpress(type="checkbox", name="projectPlatform", value="Wordpress")
+                                            label.custom-control-label(for="wordpress") Wordpress
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#shopify(type="checkbox", name="projectPlatform", value="Shopify")
+                                            label.custom-control-label(for="shopify") Shopify
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#zendesk(type="checkbox", name="projectPlatform", value="Zendesk")
+                                            label.custom-control-label(for="zendesk") Zendesk
+                            fieldset.status-form-group
+                                .checkbox-form-wrapper
+                                    legend Status
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#started(type="checkbox", name="projectStatus", value="Started")
+                                            label.custom-control-label(for="started") Started
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#completed(type="checkbox", name="projectStatus", value="Completed")
+                                            label.custom-control-label(for="completed") Completed
+                                    .form-group
+                                        .custom-control.custom-checkbox
+                                            input.custom-control-input#delivered(type="checkbox", name="projectStatus", value="Delivered")
+                                            label.custom-control-label(for="delivered") Delivered
+                            .submit-btn-wrapper
+                                input.btn.btn-secondary#submit-btn(type="submit", value="Done")
         .cards_container
             .card.heading.bg-light.border-light.mb-3
                 .card-header.headingOne

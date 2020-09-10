@@ -1,5 +1,5 @@
 import '@babel/polyfill';
-import { addNewProject, updateProject, deleteProject } from './projectOperations';
+import { addNewProject, updateProject, deleteProject, filterProjects } from './projectOperations';
 
 
 
@@ -7,15 +7,61 @@ import { addNewProject, updateProject, deleteProject } from './projectOperations
 const addNewProjectForm = document.querySelector('form.form.add_new_project');
 const deleteProjectButton = document.querySelector('a.delete_project_btn');
 const updateProjectForm = document.querySelector('form.form.update_project');
-console.log('Hello');
+const projectSearchForm = document.querySelector('form.search-form');
+const projectFilterForm = document.querySelector('#filter-accordion form.filter-form');
 
 
 // DELAGATION
+
+if (projectSearchForm) {
+    console.log('Search Form Found');
+    projectSearchForm.addEventListener('submit', e => {
+        e.preventDefault();
+        console.log('Project Search Form');
+        const projectName = document.getElementById('projectName').value;
+        let queryString = `?projectName=${projectName}`;
+        window.location.href = queryString;
+    });
+}
+
+if (projectFilterForm) {
+    // console.log('Filter Controls Found');
+    projectFilterForm.addEventListener('submit', e => {
+        e.preventDefault();
+        // console.log('Project Filter Submit');
+        const projectSourceCheckbox = document.getElementsByName('projectSource');
+        const projectPlatformcheckbox = document.getElementsByName('projectPlatform');
+        const projectStatusCheckbox = document.getElementsByName('projectStatus');
+        let projectSource = [];
+        let projectPlatform = [];
+        let projectStatus = [];
+
+        projectSourceCheckbox.forEach(el => {
+            if (el.checked)
+                projectSource.push(el.value);
+        });
+
+        projectPlatformcheckbox.forEach(el => {
+            if (el.checked)
+                projectPlatform.push(el.value);
+        });
+
+        projectStatusCheckbox.forEach(el => {
+            if (el.checked)
+                projectStatus.push(el.value);
+        });
+
+        // console.log(projectSource);
+        // console.log(projectPlatform);
+        // console.log(projectStatus);
+
+        filterProjects(projectSource, projectPlatform, projectStatus);
+    });
+}
+
 if (addNewProjectForm) {
-    console.log('Form found!');
     addNewProjectForm.addEventListener('submit', e => {
         // this prevents form from loading any other page
-        console.log('Event Listener');
         e.preventDefault();
         const projectName = document.getElementById('projectName').value;
         const projectSource = document.getElementById('projectSource').value;
@@ -45,9 +91,7 @@ if (addNewProjectForm) {
 }
 
 if (updateProjectForm) {
-    console.log('Update form found!');
     updateProjectForm.addEventListener('submit', e => {
-        console.log('Event Listener');
         e.preventDefault();
         const projectName = document.getElementById('projectName').value;
         const projectSource = document.getElementById('projectSource').value;
